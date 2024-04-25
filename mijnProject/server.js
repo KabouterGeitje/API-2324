@@ -34,12 +34,12 @@ app.get('/', async (req, res) => {
   const likedIds = []
   // loop om liked ids in de array te zetten d.m.v. push
   likes.forEach(item => likedIds.push(item.id))
-  
+  //met deze functie stuur ik naar index.liquid template, de volgende data door: rijksdata, likecount en likes.
   return res.send(renderTemplate('views/index.liquid', { rijksData: rijksData, likeCount: likes.length, like: likedIds }));
   // return res.send(renderTemplate('views/index.liquid', { title: 'Home' }));
 });
 
-
+// schrijf op wat er gebrurd, schrijf in je proces op wat je geleerd hebt en waar je tegenaan gelopen bent en code voorbeeldtjes hiervan. Op render zetten. vooral bij mijn proces vertellen wat ik heb geleerd. 
 app.post('/like', async (req, res) => {
   const likes = req.cookies.likes ? req.cookies.likes : [] 
   let filteredLikes = likes
