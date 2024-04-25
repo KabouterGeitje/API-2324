@@ -1,0 +1,35 @@
+{% layout "layouts/base.liquid" %}
+
+{% block content %}
+<nav>
+  <ul>
+    <li><h1>Rijksmuseum</h1></li>
+    <li><a href="/"><img src="./images/ep_arrow-up-bold.png"></a></li>
+  </ul>
+</nav>
+<section>
+  <h2>Likes</h2>
+<ul>
+  {%- for artwork in likes %}
+    <li>
+      <form action="/like" method="post">
+        <input type="hidden" name="id" value="{{ artwork.id }}">
+        <input type="hidden" name="title" value="{{ artwork.title }}">
+        <input type="hidden" name="image" value="{{ artwork.image }}">
+        <input type="hidden" name="maker" value="{{ artwork.maker }}">
+        <input type="hidden" name="longTitle" value="{{ artwork.longTitle }}">
+        <button type="submit">unlike</button>
+      </form>
+      <h2>{{ artwork.title }}</h2>
+      <img src="{{ artwork.image }}" alt="">
+      <details>
+        <summary>Lees meer...</summary>
+      <h3>{{ artwork.title }} - {{ artwork.principalOrFirstMaker }}</h3>
+      <p>{{ artwork.longTitle }}</p>
+      </details>
+    </li>
+    {% endfor %}
+</ul>
+</section>
+
+{% endblock %}

@@ -7,8 +7,8 @@
     <script type="module" src="http://localhost:5173/@vite/client" defer></script>
     <script type="module" src="http://localhost:5173/src/index.js" defer></script>
   {% else %}
-  {% comment %} <link rel="stylesheet" href="/main.css">
-  <script type="module" src="/main.js" defer></script> {% endcomment %}
+  <link rel="stylesheet" href="./styles/main.css">
+  {% comment %} <script type="module" src="/main.js" defer></script> {% endcomment %}
   <script type="nomodule" src="/polyfills-legacy.js" defer></script>
   <script type="nomodule" src="/main-legacy.js" defer></script>
   {% endif %}
@@ -18,5 +18,6 @@
 
 <body>
   {% block content %}{% endblock %}
+  <script src="./scripts/script.js"></script>
 </body>
 </html>

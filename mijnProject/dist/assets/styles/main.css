@@ -1,0 +1,172 @@
+@font-face {
+    font-family: rijksFont;
+    src:url(../fonts/Rijksmuseum-Normal.woff2);
+  }
+
+:root {
+    --colorCard: #8D7850;
+    --colorButton: #D55140;
+    --rijksFont: rijksFont;
+    --white: #FFF;
+    --borderRadius: 10px;
+}
+
+html, body {
+    font-family: var(--rijksFont);
+    display: grid;
+    justify-items: center;
+    justify-content: center;
+    /* background-image: url('https://lh6.ggpht.com/wlHlS69w1p1Hod685OPcXNu2r5R_Y65yYcLvZYfmwf7ZE_re7ZinLoohn_ncerLtAW6TXYunm0DB_YcHfptj7YTdeTI=s0');
+    background-size: cover; */
+
+    h1{
+        font-size: 4rem;
+        margin: 0.5rem;
+    }
+
+    a{
+        text-decoration: none;
+        width: 4rem;
+        height: 4rem;
+        margin: 1rem;
+        position: relative;
+        display: inline-flex;
+        text-align: center;
+        line-height: 100%;
+    }
+    
+    a > img{
+        display: block;
+        width: inherit;
+        z-index: -1;
+        position: absolute;
+    }
+
+    a > span{
+        font-family: var(--rijksFont);
+        font-size: 2rem;
+        position: absolute;
+        color: var(--white);
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%)
+    }
+
+    body > ul:nth-of-type(1), section > ul:nth-of-type(1){
+        list-style-type: none;
+        width: 100%;
+        display: grid;
+        justify-items: center;
+        gap:1rem;
+        margin: 0;
+        padding: 0;
+    }
+    
+    body > ul:nth-of-type(1) > li, section > ul:nth-of-type(1) > li{
+        display: grid;
+        align-items: center;
+        width: clamp(20rem, 40rem, 80%);
+        margin:0;
+        border: var(--colorCard) solid 1rem;
+        background-color: var(--colorCard);
+        border-radius: var(--borderRadius);
+    }
+
+    button{
+        margin: 0;
+        padding: 1em;
+        border-radius: 10%;
+        border: none;
+        font-family: var(--rijksFont);
+        color: var(--white);
+        background-color: var(--colorButton);
+        justify-self: end;
+        transform: translateY(25%);
+        cursor: pointer;
+    }
+    
+    button:hover{
+        background-color: #A73A2C;
+    }
+
+    ul > li> h2{
+        color: var(--white);
+        justify-self: start;
+    }
+
+    section > h2 {
+        justify-self: start;
+        margin-left: 5%;
+    }
+
+    img{
+        justify-self: center;
+        width: 100%;
+        height: auto;
+        border-radius: var(--borderRadius);
+    } 
+
+    details{
+        margin-top: 1em;
+        justify-self: start;
+        width: 100%;
+
+        summary{
+            color:var(--white);
+        }
+
+        h3 {
+            color:var(--white)
+        }
+
+        p{
+            color: var(--white);
+        }
+    }
+
+    section{
+        display: grid;
+        justify-items: center;
+        background-color: beige;
+        border-radius: var(--borderRadius);
+    }
+
+    section > ul{    
+        width: 90%; 
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        justify-items: center;
+        align-items: center;
+        gap:5rem;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+nav > ul{
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: transparent;
+}
+
+nav > ul > li{
+    li{
+        
+    }
+}
+
+@media only screen and (max-width: 900px){
+    section > ul {
+        grid-template-columns: 1fr;
+    }
+    section ul li{
+        grid-column: span 3;
+    }
+}
+
+
+
+
+

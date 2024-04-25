@@ -1,0 +1,44 @@
+{% layout "layouts/base.liquid" %}
+
+{% block content %}
+
+<nav>
+  <ul class="navigatie">
+    <li><h1>Rijksmuseum</h1></li>
+    <li><a href="/likes"><img src="./images/hart.png"><span>{{ likeCount }}</span></a></li>
+  </ul>
+</nav>
+
+
+
+<ul>
+  {%- for artwork in rijksData.artObjects %}
+  <li>
+    <form action="/like" method="post">
+      <input type="hidden" name="id" value="{{ artwork.id }}">
+      <input type="hidden" name="title" value="{{ artwork.title }}">
+      <input type="hidden" name="image" value="{{ artwork.webImage.url }}">
+      <input type="hidden" name="maker" value="{{ artwork.principalOrFirstMaker }}">
+      <input type="hidden" name="longTitle" value="{{ artwork.longTitle }}">
+      <button type="submit">
+        {% comment %} if statement om te bepalen of een id al geliked is of niet en op basis hiervan de tekst in de button anders te maken.
+        like is afkomstig uit de res van app.get('/').  
+      {% endcomment %}
+        {% if like contains artwork.id %}
+          unlike
+        {%  else %}
+          like
+        {% endif %}
+      </button>
+    </form>
+    <h2>{{ artwork.title }}</h2>
+    <img src="{{ artwork.webImage.url }}" alt="">
+    <details>
+      <summary>Lees meer...</summary>
+      <h3>{{ artwork.title }} - {{ artwork.principalOrFirstMaker }}</h3>
+      <p>{{ artwork.longTitle }}</p>
+    </details>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}
