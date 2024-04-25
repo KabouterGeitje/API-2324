@@ -15,7 +15,7 @@ const engine = new Liquid({
 });
 
 const app = new App();
-const baseURL = "https://www.rijksmuseum.nl/api/nl/collection?key="+process.env.APIKEY+"&ps=100";
+const baseURL = "https://www.rijksmuseum.nl/api/nl/collection?key="+process.env.APIKEY+"&ps=20";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename)
