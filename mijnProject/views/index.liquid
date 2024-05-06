@@ -2,14 +2,13 @@
 
 {% block content %}
 
-<nav>
-  <ul class="navigatie">
+
+<nav class="navigatie">
+  <ul>
     <li><h1>Rijksmuseum</h1></li>
-    <li><a href="/likes"><img src="./images/hart.png"><span>{{ likeCount }}</span></a></li>
+    <li><a href="/likes"><img class="hover" src="./images/hart.png"><span>{{ likeCount }}</span></a></li>
   </ul>
 </nav>
-
-
 
 <ul>
   {%- for artwork in rijksData.artObjects %}
@@ -34,11 +33,12 @@
     <h2>{{ artwork.title }}</h2>
     <img src="{{ artwork.webImage.url }}" alt="">
     <details>
-      <summary>Lees meer...</summary>
+      <summary data-open="...lees minder" data-close="Lees meer..."></summary>
       <h3>{{ artwork.title }} - {{ artwork.principalOrFirstMaker }}</h3>
       <p>{{ artwork.longTitle }}</p>
     </details>
   </li>
   {% endfor %}
 </ul>
+
 {% endblock %}

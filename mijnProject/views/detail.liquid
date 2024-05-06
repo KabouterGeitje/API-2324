@@ -4,7 +4,7 @@
 <nav>
   <ul>
     <li><h1>Rijksmuseum</h1></li>
-    <li><a href="/"><img src="./images/ep_arrow-up-bold.png"></a></li>
+    <li><a href="/"><img class="pijlTerug" src="./images/ep_arrow-up-bold.png"></a></li>
   </ul>
 </nav>
 <section>
@@ -23,7 +23,7 @@
       <h2>{{ artwork.title }}</h2>
       <img src="{{ artwork.image }}" alt="">
       <details>
-        <summary>Lees meer...</summary>
+        <summary data-open="...lees minder" data-close="Lees meer..."></summary>
       <h3>{{ artwork.title }} - {{ artwork.principalOrFirstMaker }}</h3>
       <p>{{ artwork.longTitle }}</p>
       </details>

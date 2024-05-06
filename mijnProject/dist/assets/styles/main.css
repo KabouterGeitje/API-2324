@@ -5,9 +5,11 @@
 
 :root {
     --colorCard: #8D7850;
+    --colorCardDarker: #2b261e;
     --colorButton: #D55140;
     --rijksFont: rijksFont;
     --white: #FFF;
+    --whiteButNot:#f9e6dc;
     --borderRadius: 10px;
 }
 
@@ -16,8 +18,14 @@ html, body {
     display: grid;
     justify-items: center;
     justify-content: center;
-    /* background-image: url('https://lh6.ggpht.com/wlHlS69w1p1Hod685OPcXNu2r5R_Y65yYcLvZYfmwf7ZE_re7ZinLoohn_ncerLtAW6TXYunm0DB_YcHfptj7YTdeTI=s0');
-    background-size: cover; */
+    background-image: repeating-radial-gradient(
+        circle at 0% 50%, 
+        var(--whiteButNot) 10%, 
+        var(--colorButton) 20% 30%);
+    background-size: 50px 50px;
+    margin: 0;
+    padding: 0;
+    z-index: -100;
 
     h1{
         font-size: 4rem;
@@ -40,6 +48,14 @@ html, body {
         width: inherit;
         z-index: -1;
         position: absolute;
+        filter: drop-shadow(0 0 0.75rem var(--colorButton));
+    }
+
+
+
+    .pijlTerug{
+        scale: 0.5;
+        filter: none;
     }
 
     a > span{
@@ -67,8 +83,8 @@ html, body {
         align-items: center;
         width: clamp(20rem, 40rem, 80%);
         margin:0;
-        border: var(--colorCard) solid 1rem;
-        background-color: var(--colorCard);
+        border: var(--whiteButNot) solid 1rem;
+        background-color: var(--whiteButNot);
         border-radius: var(--borderRadius);
     }
 
@@ -90,11 +106,16 @@ html, body {
     }
 
     ul > li> h2{
-        color: var(--white);
+        color: var(--colorCardDarker);
         justify-self: start;
     }
 
     section > h2 {
+        color: var(--white);
+        background-color: var(--colorButton);
+        padding: 0.5em;
+        border-radius: 10px;
+        font-size: 2.5em;
         justify-self: start;
         margin-left: 5%;
     }
@@ -104,7 +125,7 @@ html, body {
         width: 100%;
         height: auto;
         border-radius: var(--borderRadius);
-    } 
+    }
 
     details{
         margin-top: 1em;
@@ -112,32 +133,74 @@ html, body {
         width: 100%;
 
         summary{
-            color:var(--white);
+            list-style: none;
+            cursor: pointer;
+            color:var(--colorCardDarker);
         }
 
         h3 {
-            color:var(--white)
+            color:var(--colorCardDarker)
         }
 
         p{
-            color: var(--white);
+            color: var(--colorCardDarker);
         }
     }
+
+    a:hover .hover{
+        scale: 1.1;
+        transition: 0.2s;
+    }
+
+    /* code met hulp van stack overflow */
+
+    details summary::after {
+        content: attr(data-open);
+        opacity: 0;
+        font-size: 5px;
+      }
+      
+      details[open] summary::after {
+        content: attr(data-open);
+        opacity: 1;
+        font-size: 14px;
+      }
+      
+      details summary::before {
+        content: attr(data-close);
+        opacity: 0;
+        font-size: 5px;
+      }
+      
+      details:not([open]) summary::before {
+        content: attr(data-close);
+        opacity: 1;
+        font-size: 14px;
+      }
+      
+      details summary::after,
+      details summary::before {
+        display: inline-block;
+        transition: all .4s ease-in-out;
+        transform-origin: center bottom;
+      }
+    
+    /* eigen code weer */
 
     section{
         display: grid;
         justify-items: center;
-        background-color: beige;
         border-radius: var(--borderRadius);
     }
 
     section > ul{    
         width: 90%; 
-        grid-template-columns: repeat(2, 1fr);
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-template-rows: auto;
-        justify-items: center;
-        align-items: center;
-        gap:5rem;
+
+        align-items: start;
+        
         margin: 0;
         padding: 0;
     }
@@ -147,14 +210,20 @@ nav > ul{
     list-style-type: none;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 1em;
     background-color: transparent;
+    
 }
 
-nav > ul > li{
-    li{
-        
-    }
+nav{
+    background-color: var(--white);
+    width: 100%;
+    z-index: -20;
+}
+
+.navigatie{
+    margin-bottom: 5%;
 }
 
 @media only screen and (max-width: 900px){
