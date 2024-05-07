@@ -14,6 +14,7 @@ Ik had wel nagedacht over wat ik wilde doen. Ik wilde gebruik maken van de Rijks
 
 Ik werd de eerste week ziek, waardoor ik ook niet veel meer had kunnen doen. Maandag was ik er weer en toen moest ik bedenken hoe ik die API moest linken. Ik had geen idee hoe ik dit moest doen en heb toen gelukkig hulp gekregen van Cyd. Hierna heb ik ook gelijk met haar gekeken naar hoe ik de informatie uit de API in mijn liquid bestanden kon krijgen. Nu kon ik eindelijk een beetje verder.
 
+```
 // API inladen 
 const getRijksData = async () => {
   const response = await fetch(baseURL);
@@ -35,7 +36,7 @@ const getRijksData = async () => {
     </li>
     {% endfor %}
 </ul>
-
+```
 ## week 3
 
 Ik voelde me compleet tot einde raad deze week. Ik schaamde me ervoor dat ik overal zo weinig van begreep en wilde niemand lastig vallen met mijn vragen en problemen. Ik zat vast na wat ik samen met Cyd had gedaan en wist niet zo goed wat ik allemaal zou kunnen doen. Alles voelde enorm buiten
